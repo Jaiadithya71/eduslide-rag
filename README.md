@@ -13,7 +13,6 @@ eduslide-rag/
 │   ├── load_vectorstore.py       # Vector store loader
 │   └── query_system.py           # Interactive query system
 ├── notebooks/
-│   └── QdrantClient.ipynb        # Original processing notebook
 ├── .gitignore
 ├── requirements.txt
 └── README.md
