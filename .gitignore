@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+
+# Vector Database (too large for GitHub)
+data/qdrant_db_multi_subject/
+*.qdrant
+
+# Images (too large for GitHub)
+data/extracted_images/
+data/pdfs/
+*.pdf
+*.jpg
+*.jpeg
+*.png
+
+# Jupyter
+.ipynb_checkpoints/
+notebooks/.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local

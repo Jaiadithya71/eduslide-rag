@@ -1,0 +1,19 @@
+# Vector Store & Embeddings
+qdrant-client==1.16.1
+langchain-qdrant==1.1.0
+langchain-huggingface==1.1.0
+sentence-transformers==5.1.2
+
+# Document Processing
+pymupdf==1.21.1
+langchain-community==0.4.1
+langchain-core==1.1.0
+
+# Core Dependencies
+torch>=2.0.0
+transformers>=4.41.0
+numpy>=1.26.2
+pydantic>=2.5.0
+
+# Optional (if using other features)
+python-dotenv==1.0.0

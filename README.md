@@ -1,0 +1,79 @@
+# EduSlide RAG System
+
+A Retrieval-Augmented Generation (RAG) system for educational content from multiple textbooks.
+
+## 📁 Project Structure
+```
+eduslide-rag/
+├── data/
+│   ├── qdrant_db_multi_subject/  # Vector database (not in repo)
+│   ├── extracted_images/          # Images from PDFs (not in repo)
+│   └── pdfs/                      # Source PDFs (not in repo)
+├── src/
+│   ├── load_vectorstore.py       # Vector store loader
+│   └── query_system.py           # Interactive query system
+├── notebooks/
+│   └── QdrantClient.ipynb        # Original processing notebook
+├── .gitignore
+├── requirements.txt
+└── README.md
+```
+
+## 🚀 Quick Start
+
+### 1. Download Data
+
+**Important**: The vector database and images are too large for GitHub. Download them separately:
+
+1. Download `qdrant_db_multi_subject.zip` from [Google Drive Link]
+2. Extract to `data/qdrant_db_multi_subject/`
+3. (Optional) Download images and PDFs if needed
+
+### 2. Install Dependencies
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+### 3. Run Query System
+```bash
+python src/query_system.py
+```
+
+## 📊 Data Details
+
+- **Total Documents**: 1,164 pages with images
+- **Subjects**: Geography (GEES), Mathematics (GEMH), Programming (GEPR), ML (GHML), Science (HESC)
+- **Vector Dimensions**: 384 (sentence-transformers/all-MiniLM-L6-v2)
+- **Database Size**: ~500MB (compressed)
+
+## 🔍 Usage Example
+```python
+from src.load_vectorstore import VectorStoreLoader
+
+# Load vector store
+loader = VectorStoreLoader("./data/qdrant_db_multi_subject")
+loader.initialize()
+
+# Search
+results = loader.search("What are geographical divisions of India?")
+
+# Display results
+for result in results:
+    print(f"{result['source']}: {result['text'][:100]}...")
+```
+
+## 📝 Notes
+
+- First run downloads the embedding model (~90MB)
+- GPU recommended but not required
+- Database is read-only (no re-indexing needed)
+
+## 🤝 Contributing
+
+This is an educational project. Feel free to fork and modify!
+
+## 📄 License
+
+MIT License - See LICENSE file for details
