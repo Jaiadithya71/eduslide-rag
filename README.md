@@ -6,9 +6,9 @@ A Retrieval-Augmented Generation (RAG) system for educational content from multi
 ```
 eduslide-rag/
 ├── data/
-│   ├── qdrant_db_multi_subject/  # Vector database (not in repo)
-│   ├── extracted_images/          # Images from PDFs (not in repo)
-│   └── pdfs/                      # Source PDFs (not in repo)
+│   ├── qdrant_db_multi_subject/  # Vector database (~12.6 MB)
+│   ├── extracted_images/          # Images from PDFs
+│   └── pdfs/                      # Source PDFs
 ├── src/
 │   ├── load_vectorstore.py       # Vector store loader
 │   └── query_system.py           # Interactive query system
@@ -21,13 +21,11 @@ eduslide-rag/
 
 ## 🚀 Quick Start
 
-### 1. Download Data
-
-**Important**: The vector database and images are too large for GitHub. Download them separately:
-
-1. Download `qdrant_db_multi_subject.zip` from [Google Drive Link]
-2. Extract to `data/qdrant_db_multi_subject/`
-3. (Optional) Download images and PDFs if needed
+### 1. Clone Repository
+```bash
+git clone <your-repo-url>
+cd eduslide-rag
+```
 
 ### 2. Install Dependencies
 ```bash
@@ -46,7 +44,7 @@ python src/query_system.py
 - **Total Documents**: 1,164 pages with images
 - **Subjects**: Geography (GEES), Mathematics (GEMH), Programming (GEPR), ML (GHML), Science (HESC)
 - **Vector Dimensions**: 384 (sentence-transformers/all-MiniLM-L6-v2)
-- **Database Size**: ~500MB (compressed)
+- **Total Size**: ~12.6 MB (all files included)
 
 ## 🔍 Usage Example
 ```python
@@ -68,7 +66,7 @@ for result in results:
 
 - First run downloads the embedding model (~90MB)
 - GPU recommended but not required
-- Database is read-only (no re-indexing needed)
+- All data files are included in the repository
 
 ## 🤝 Contributing
 
